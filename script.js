@@ -29,7 +29,7 @@ function animateValue(id, start, end, duration) {
     }, stepTime);
 }
 
-animateValue("value", 0, 264, 1000);
+animateValue("value", 0, 264, 2000);
 
 // VALUE TWO
 function animateValue2(id, start, end, duration) {
@@ -47,7 +47,7 @@ function animateValue2(id, start, end, duration) {
     }, stepTime);
 }
 
-animateValue2("value2", 0, 61, 1000);
+animateValue2("value2", 0, 61, 2000);
 
 // VALUE THREE
 function animateValue3(id, start, end, duration) {
@@ -65,7 +65,7 @@ function animateValue3(id, start, end, duration) {
     }, stepTime);
 }
 
-animateValue3("value3", 0, 3, 1000);
+animateValue3("value3", 0, 3, 2000);
 
 var slideIndex = 0;
 showSlides();
@@ -81,3 +81,14 @@ function showSlides() {
   slides[slideIndex-1].style.display = "block";
   setTimeout(showSlides, 3000); // Change image every 2 seconds
 }
+
+  window.addEventListener("DOMContentLoaded", function(e) {
+
+    var stage = document.getElementById("stage");
+    var fadeComplete = function(e) { stage.appendChild(arr[0]); };
+    var arr = stage.getElementsByTagName("a");
+    for(var i=0; i < arr.length; i++) {
+      arr[i].addEventListener("animationend", fadeComplete, false);
+    }
+
+  }, false);
